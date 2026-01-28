@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const API = process.env.REACT_APP_API_URL;
-
+const API = 'https://teenpatti-backend-faqu.onrender.com/api';
+console.log(API)
+debugger;
 export const createGame = (players, gameName) =>
   axios.post(`${API}/create`, { players, gameName });
 
