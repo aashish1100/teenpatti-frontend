@@ -17,7 +17,7 @@ export default function AddRound() {
 
  useEffect(() => {
   axios
-    .get(`https://teenpatti-backend-faqu.onrender.com/api/game/${gameId}/ledger`)
+    .get(`https://teenpatti-backend-faqu.onrender.com/api/${gameId}/ledger`)
     .then(res => {
       const names = res.data.players;   // FIX ✔
       setPlayers(names);
