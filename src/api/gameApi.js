@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/game";
+const API = process.env.REACT_APP_API_URL;
 
 export const createGame = (players, gameName) =>
   axios.post(`${API}/create`, { players, gameName });

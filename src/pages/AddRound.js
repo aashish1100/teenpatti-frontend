@@ -16,15 +16,18 @@ export default function AddRound() {
   const [losers, setLosers] = useState([]);
 
  useEffect(() => {
-  axios.get(`http://localhost:5000/api/game/${gameId}/ledger`)
+  axios
+    .get(`${process.env.REACT_APP_API_URL}/api/game/${gameId}/ledger`)
     .then(res => {
       const names = res.data.players;   // FIX ✔
       setPlayers(names);
 
       // Reset losers list with all players, amount = 0
       setLosers(names.map(name => ({ name, amount: 0 })));
-    });
+    })
+    .catch(err => console.error(err));
 }, [gameId]);
+
 
 
   const submit = async () => {
